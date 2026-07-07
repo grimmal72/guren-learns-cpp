@@ -1,4 +1,4 @@
-This is a project where I'm going to be learning C++, but I'm going to make a big deal out of it.
+This is a project where I'm going to be learning C++, but I'm going to make a big deal out of it. It is starting as of July 2026.
 
 I already have https://jordanislame.neocities.org/, which was about learning to code HTML and CSS, and then later I made https://gurencodes.com/, which was about me learning to code a Linux HTTP server.
 Now, since I have long felt that WIndows development is where it's at, and I want to do indie game development, I am learning C++.
