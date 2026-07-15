@@ -1,0 +1,1 @@
+This one's a mess, sorry. The font pixeltest_best.ttf was used for the PRESS START text, image.png should be a DVD logo used for project 3, cursor.png is for project 1, the 32 numbered images are for project 2.
