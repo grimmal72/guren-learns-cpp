@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     SDL_Surface* surface = IMG_Load("scroll-background-wide.png"); // expects a 1200x480 PNG
     SDL_Texture* image = SDL_CreateTextureFromSurface(renderer, surface);
@@ -26,10 +26,10 @@ int main(int argc, char* argv[]) {
     const int SCROLL_SPEED = 5; // pixels per frame while a key is held
 
     bool running = true;
-    SDL_Event e;
+    SDL_Event event;
     while (running) {
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) running = false;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) running = false;
         }
 
         // Continuous held-key check, not a single keydown event —
