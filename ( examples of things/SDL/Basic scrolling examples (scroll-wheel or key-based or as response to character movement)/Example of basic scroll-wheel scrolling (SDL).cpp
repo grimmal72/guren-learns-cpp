@@ -25,13 +25,13 @@ int main(int argc, char* argv[]) {
     int scrollY = 0;
 
     bool running = true;
-    SDL_Event e;
+    SDL_Event event;
     while (running) {
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) running = false;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) running = false;
 
-            if (e.type == SDL_MOUSEWHEEL) {
-                scrollY -= e.wheel.y * 20;
+            if (event.type == SDL_MOUSEWHEEL) {
+                scrollY -= event.wheel.y * 20;
 
                 if (scrollY < 0) scrollY = 0;
                 if (scrollY > MAX_SCROLL) scrollY = MAX_SCROLL;
