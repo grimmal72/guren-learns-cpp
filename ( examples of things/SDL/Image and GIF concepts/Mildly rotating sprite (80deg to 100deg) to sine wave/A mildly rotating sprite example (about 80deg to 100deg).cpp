@@ -12,32 +12,32 @@ const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
 struct SpinningSprite {
-    SDL_Texture* tex = nullptr;
-    SDL_Rect     dst{};
+    SDL_Texture* texture = nullptr;
+    SDL_Rect     dest{};
 
     float amplitudeDeg = 10.0f;   // swings +/-10 deg off upright
     float frequencyHz = 0.4f;    // full cycles per second
     float phase = 0.0f;    // seconds, accumulated
 
     bool loadFromPNG(SDL_Renderer* renderer, const std::string& path) {
-        SDL_Surface* surf = IMG_Load(path.c_str());
-        if (!surf) {
+        SDL_Surface* surface = IMG_Load(path.c_str());
+        if (!surface) {
             printf("IMG_Load failed for '%s': %s\n", path.c_str(), IMG_GetError());
             return false;
         }
 
-        tex = SDL_CreateTextureFromSurface(renderer, surf);
-        dst.w = surf->w * 2;
-        dst.h = surf->h * 2;
-        SDL_FreeSurface(surf);
+        texture = SDL_CreateTextureFromSurface(renderer, surface);
+        dest.w = surface->w * 2;
+        dest.h = surface->h * 2;
+        SDL_FreeSurface(surface);
 
-        if (!tex) {
+        if (!texture) {
             printf("SDL_CreateTextureFromSurface failed: %s\n", SDL_GetError());
             return false;
         }
 
         // Enable alpha blending so PNG transparency renders correctly
-        SDL_SetTextureBlendMode(tex, SDL_BLENDMODE_BLEND);
+        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
         return true;
     }
 
@@ -53,14 +53,14 @@ struct SpinningSprite {
     void render(SDL_Renderer* renderer) {
         // nullptr pivot = SDL rotates around the exact center of dst,
         // giving a true central twist instead of a base-anchored wag.
-        SDL_RenderCopyEx(renderer, tex, nullptr, &dst,
+        SDL_RenderCopyEx(renderer, texture, nullptr, &dest,
             currentAngle(), nullptr, SDL_FLIP_NONE);
     }
 
     void destroy() {
-        if (tex) {
-            SDL_DestroyTexture(tex);
-            tex = nullptr;
+        if (texture) {
+            SDL_DestroyTexture(texture);
+            texture = nullptr;
         }
     }
 };
@@ -113,17 +113,17 @@ int main(int argc, char* argv[]) {
     }
 
     // Center it on screen
-    sprite.dst.x = (WINDOW_WIDTH - sprite.dst.w) / 2;
-    sprite.dst.y = (WINDOW_HEIGHT - sprite.dst.h) / 2;
+    sprite.dest.x = (WINDOW_WIDTH - sprite.dest.w) / 2;
+    sprite.dest.y = (WINDOW_HEIGHT - sprite.dest.h) / 2;
 
     Uint32 lastTicks = SDL_GetTicks();
     bool   running = true;
-    SDL_Event e;
+    SDL_Event event;
 
     while (running) {
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) running = false;
-            if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) running = false;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) running = false;
+            if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE) running = false;
         }
 
         Uint32 now = SDL_GetTicks();
