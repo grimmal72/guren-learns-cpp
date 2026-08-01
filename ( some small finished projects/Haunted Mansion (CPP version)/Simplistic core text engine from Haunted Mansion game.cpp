@@ -4,7 +4,7 @@
 #include <algorithm>
 
 
-enum class Command {
+enum Command {
 	North, South, East, West,
 	Look, Inventory, Quit,
 	Unknown
