@@ -2,7 +2,7 @@ I decided while translating this program to C++, to make it very very clear this
 
 So I have four different versions of the game engine core here.
 
-Step 1, 2, 3, 4, 5, and 6 are completely independent from each other and don't rely on each other.
+Steps 1, 2, 3, 4, 5, and 6 are completely independent from each other and don't rely on each other.
 
 * Step 1 is a very very fundamental room changing system and text input parser. It is what is fundamentally necessary to make this type of game work at all.
 
