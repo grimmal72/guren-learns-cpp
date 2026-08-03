@@ -1,6 +1,6 @@
 I decided while translating this program to C++, to make it very very clear this time how the program works at it's core.
 
-So I have four different versions of the game engine core here.
+So I have seven different versions of the game engine core here.
 
 Steps 1, 2, 3, 4, 5, 6, and 7 are completely independent from each other and don't rely on each other.
 
