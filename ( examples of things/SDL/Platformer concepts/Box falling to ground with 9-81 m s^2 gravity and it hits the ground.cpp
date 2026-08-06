@@ -1,5 +1,5 @@
 #include <SDL.h>
-#include <stdbool.h>
+#include <stdbool.h> 
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
