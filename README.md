@@ -16,3 +16,8 @@ Keep track of the Guren Learn C++ project here.
 https://jordanislame.neocities.org/pages/gurenlearnscpp/gurenlearnscpp
 
 This Github repo is where I will post the CPP and EXE files I make.
+
+
+---
+
+Right now the dated folders are a total mess, as of a month into the project. I'll have to fix that sometime by numbering days like 01, 02, etc., and grouping the months by folders. That will happen later.
