@@ -161,8 +161,6 @@ RoomExits worldMap[NUMBERED_ROOMS] = {
 
 };
 
-// Note, I still have to figure a way to refer to the array descriptions. Either by index number, or I'll have to refactor to make currentRoom call it through an object or something.
-
 Room currentRoom = KITCHEN;
 
 void tryMove(const std::string& direction) {
